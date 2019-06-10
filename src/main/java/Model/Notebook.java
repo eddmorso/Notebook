@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Subcriber.Subscriber;
+
 import java.util.ArrayList;
 
 public class Notebook {
@@ -22,7 +24,11 @@ public class Notebook {
     }
 
     public void deleteSubscriber(Subscriber subscriber){
-        subscribers.remove(subscriber);
+        if (!subscribers.isEmpty() && subscribers.contains(subscriber)) {
+            subscribers.remove(subscriber);
+        } else {
+           throw new RuntimeException("No such subscriber detected");
+        }
     }
 
     public void deleteAll(){

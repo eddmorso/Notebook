@@ -1,4 +1,4 @@
-package Model;
+package Model.Subcriber;
 
 public enum Group {
     WORK,
