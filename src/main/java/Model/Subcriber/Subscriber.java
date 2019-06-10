@@ -1,9 +1,4 @@
 package Model.Subcriber;
-
-import Model.Subcriber.Address;
-import Model.Subcriber.Group;
-import Model.Subcriber.Name;
-
 import java.util.Date;
 
 public class Subscriber {
@@ -129,5 +124,10 @@ public class Subscriber {
 
     public void setLastChangedDate(Date lastChangedDate) {
         this.lastChangedDate = lastChangedDate;
+    }
+
+    @Override
+    public int hashCode() {
+        return nickname.toLowerCase().hashCode();
     }
 }
