@@ -20,4 +20,12 @@ public class Notebook {
             throw new RuntimeException("No subscribers were added");
         }
     }
+
+    public void deleteSubscriber(Subscriber subscriber){
+        subscribers.remove(subscriber);
+    }
+
+    public void deleteAll(){
+        subscribers.clear();
+    }
 }
