@@ -15,23 +15,28 @@ public class Notebook {
         this.subscribers = subscribers;
     }
 
-    public ArrayList<Subscriber> getListOfSubscribers(){
-        if (!subscribers.isEmpty()){
-            return subscribers;
-        } else {
-            throw new RuntimeException("No subscribers were added");
+    public void addSubscriber(Subscriber subscriber){
+        subscribers.add(subscriber);
+    }
+
+    public Subscriber getSubscriber(Subscriber subscriber){
+        for (Subscriber s : subscribers){
+            if(s.equals(subscriber)){
+                return s;
+            }
         }
+        return null;
     }
 
     public void deleteSubscriber(Subscriber subscriber){
-        if (!subscribers.isEmpty() && subscribers.contains(subscriber)) {
-            subscribers.remove(subscriber);
-        } else {
-           throw new RuntimeException("No such subscriber detected");
-        }
+        subscribers.remove(subscriber);
     }
 
     public void deleteAll(){
         subscribers.clear();
+    }
+
+    public ArrayList<Subscriber> getListOfSubscribers(){
+        return subscribers;
     }
 }
