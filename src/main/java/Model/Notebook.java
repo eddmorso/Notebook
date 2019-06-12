@@ -16,7 +16,7 @@ public class Notebook {
         this.subscribers = subscribers;
     }
 
-    public void addSubscriber(Subscriber subscriber){
+    public void addSubscriber(Subscriber subscriber) throws DataException{
         if (subscribers.contains(subscriber)) {
             throw new DataException("Subscriber " + subscriber + " already exists");
         }

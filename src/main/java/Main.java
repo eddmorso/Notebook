@@ -1,3 +1,4 @@
+import Model.Exceptions.DataException;
 import Model.Notebook;
 import Model.Subcriber.Address;
 import Model.Subcriber.Group;
@@ -14,7 +15,11 @@ public class Main {
                 new Address("Kyiv", "Balsaka", 2, 222), new Date());
         Notebook notebook = new Notebook();
 
-        notebook.addSubscriber(subscriber);
+        try {
+            notebook.addSubscriber(subscriber);
+        }catch (DataException de){
+            de.printStackTrace();
+        }
 
         System.out.println(notebook.getSubscriber(subscriber));
         System.out.println(subscriber.getName());
@@ -32,7 +37,11 @@ public class Main {
                 1,1,"edts@fas", "sad",
                 new Address("Kyiv", "Balsaka", 2, 222), new Date());
 
-        notebook.addSubscriber(subscriber1);
+        try {
+            notebook.addSubscriber(subscriber1);
+        }catch (DataException de){
+            de.printStackTrace();
+        }
 
         System.out.println(subscriber1.getCreationDate());
         System.out.println(subscriber.getCreationDate());
