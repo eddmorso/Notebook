@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Subscriber {
     private final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-    private Date date;
     private Name name;
     private String nickname;
     private String comment;
@@ -29,7 +28,6 @@ public class Subscriber {
         this.email = email;
         this.skype = skype;
         this.address = address;
-        date = new Date();
         this.creationDate = formatter.format(creationDate);
         lastChangedDate = this.creationDate;
     }
@@ -40,8 +38,7 @@ public class Subscriber {
 
     public void setName(Name name) {
         this.name = name;
-        date = new Date();
-        lastChangedDate = formatter.format(date);
+        lastChangedDate = formatter.format(new Date());
     }
 
     public String getNickname() {
@@ -58,6 +55,7 @@ public class Subscriber {
 
     public void setComment(String comment) {
         this.comment = comment;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public Group getGroup() {
@@ -66,6 +64,7 @@ public class Subscriber {
 
     public void setGroup(Group group) {
         this.group = group;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public int getTelephoneNumber() {
@@ -74,6 +73,7 @@ public class Subscriber {
 
     public void setTelephoneNumber(int telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public int getPhoneNumber() {
@@ -82,6 +82,7 @@ public class Subscriber {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public int getPhoneNumber2() {
@@ -90,6 +91,7 @@ public class Subscriber {
 
     public void setPhoneNumber2(int phoneNumber2) {
         this.phoneNumber2 = phoneNumber2;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public String getEmail() {
@@ -98,6 +100,7 @@ public class Subscriber {
 
     public void setEmail(String email) {
         this.email = email;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public String getSkype() {
@@ -106,6 +109,7 @@ public class Subscriber {
 
     public void setSkype(String skype) {
         this.skype = skype;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public Address getAddress() {
@@ -114,6 +118,7 @@ public class Subscriber {
 
     public void setAddress(Address address) {
         this.address = address;
+        lastChangedDate = formatter.format(new Date());
     }
 
     public String getCreationDate() {
@@ -122,10 +127,6 @@ public class Subscriber {
 
     public String getLastChangedDate() {
         return lastChangedDate;
-    }
-
-    public void setLastChangedDate(Date lastChangedDate) {
-        this.lastChangedDate = formatter.format(lastChangedDate);
     }
 
     @Override

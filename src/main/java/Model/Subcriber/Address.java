@@ -12,7 +12,7 @@ public class Address {
         this.street = street;
         this.building = building;
         this.apartment = apartment;
-        wholeAddress = city + " " + street + " " + building + " " + apartment;
+        wholeAddress = city + ", " + street + ", " + building + ", " + apartment;
     }
 
     public String getCity() {
