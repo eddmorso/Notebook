@@ -134,6 +134,16 @@ public class Subscriber {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Subscriber){
+            Subscriber subscriber = (Subscriber) obj;
+
+            return subscriber.getNickname().equalsIgnoreCase(nickname);
+        }
+        return false;
+    }
+
+    @Override
     public int hashCode() {
         return nickname.toLowerCase().hashCode();
     }
