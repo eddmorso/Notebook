@@ -1,7 +1,10 @@
 package Model.Subcriber;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Subscriber {
+    private final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    private Date date;
     private Name name;
     private String nickname;
     private String comment;
@@ -12,8 +15,8 @@ public class Subscriber {
     private String email;
     private String skype;
     private Address address;
-    private Date creationDate;
-    private Date lastChangedDate;
+    private String creationDate;
+    private String lastChangedDate;
 
     public Subscriber(Name name, String nickname, Group group,
                       int phoneNumber, int telephoneNumber, String email,
@@ -26,8 +29,9 @@ public class Subscriber {
         this.email = email;
         this.skype = skype;
         this.address = address;
-        this.creationDate = creationDate;
-        lastChangedDate = creationDate;
+        date = new Date();
+        this.creationDate = formatter.format(creationDate);
+        lastChangedDate = this.creationDate;
     }
 
     public Name getName() {
@@ -36,6 +40,8 @@ public class Subscriber {
 
     public void setName(Name name) {
         this.name = name;
+        date = new Date();
+        lastChangedDate = formatter.format(date);
     }
 
     public String getNickname() {
@@ -110,20 +116,21 @@ public class Subscriber {
         this.address = address;
     }
 
-    public Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public Date getLastChangedDate() {
+    public String getLastChangedDate() {
         return lastChangedDate;
     }
 
     public void setLastChangedDate(Date lastChangedDate) {
-        this.lastChangedDate = lastChangedDate;
+        this.lastChangedDate = formatter.format(lastChangedDate);
+    }
+
+    @Override
+    public String toString() {
+        return nickname;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Model;
 
+import Model.Exceptions.DataException;
 import Model.Subcriber.Subscriber;
 
 import java.util.ArrayList;
@@ -16,6 +17,9 @@ public class Notebook {
     }
 
     public void addSubscriber(Subscriber subscriber){
+        if (subscribers.contains(subscriber)) {
+            throw new DataException("Subscriber " + subscriber + " already exists");
+        }
         subscribers.add(subscriber);
     }
 
