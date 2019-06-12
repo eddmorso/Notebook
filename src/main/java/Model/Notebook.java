@@ -1,9 +1,13 @@
 package Model;
 
 import Model.Exceptions.DataException;
+import Model.Subcriber.Address;
+import Model.Subcriber.Group;
+import Model.Subcriber.Name;
 import Model.Subcriber.Subscriber;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Notebook {
     private ArrayList<Subscriber> subscribers;
@@ -30,6 +34,13 @@ public class Notebook {
             }
         }
         return null;
+    }
+
+    public Subscriber createSubscriber(Name name, String nickname, Group group,
+                                       int phoneNumber, int telephoneNumber, String email,
+                                       String skype, Address address, Date creationDate){
+        return new Subscriber(name, nickname, group, phoneNumber,
+                telephoneNumber, email, skype, address, creationDate);
     }
 
     public void deleteSubscriber(Subscriber subscriber){
